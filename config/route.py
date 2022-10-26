@@ -14,3 +14,5 @@ class Route:
         #         Project
         GET_LIST_PROJECT = '/project'
         CREATE_PROJECT = '/project'
+        UPDATE_PROJECT = '/project'
+        GET_PROJECT_DETAIL = 'project/{project_id}'
