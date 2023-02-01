@@ -3,3 +3,4 @@
 from app.models.model_base import Base  # noqa
 from app.models.model_user import User  # noqa
 from app.models.model_project import Project    # noqa
+from app.models.model_bus_schedule import BusSchedule

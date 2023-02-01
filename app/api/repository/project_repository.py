@@ -26,10 +26,8 @@ async def get_project(params: PaginationParams = Depends()):
 async def create_project(data: CreateProject):
     try:
         logging.info("===> create project repository <===")
-        current_time = datetime.now()
         new_project = Project(
             project_name=data.project_name,
-            created_at=current_time
         )
         db.session.add(new_project)
         db.session.commit()

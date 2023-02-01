@@ -1,7 +1,7 @@
 import logging
 from botocore.exceptions import ClientError
 from fastapi import APIRouter, Depends, HTTPException, Form
-from starlette import status, schemas
+from starlette import status
 
 from app.api.service import project_service
 from app.helpers.login_manager import login_required

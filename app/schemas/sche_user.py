@@ -33,7 +33,7 @@ class Register(BaseModel):
     full_name: str
     email: EmailStr
     password: str
-    role: UserRole = UserRole.GUEST
+    role: UserRole
 
 
 class UserCreateRequest(UserBase):
@@ -41,14 +41,14 @@ class UserCreateRequest(UserBase):
     password: str
     email: EmailStr
     is_active: bool = True
-    role: UserRole = UserRole.GUEST
+    role: UserRole
 
 
 class UserRegisterRequest(BaseModel):
     full_name: str
     email: EmailStr
     password: str
-    role: UserRole = UserRole.GUEST
+    role: UserRole
 
 
 class UserUpdateMeRequest(BaseModel):

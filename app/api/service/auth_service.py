@@ -56,6 +56,13 @@ async def register(user_create: Register):
         raise HTTPException(status_code=status.HTTP_424_FAILED_DEPENDENCY, detail=e.response)
 
 
+async def get_user_detail(user_id: str):
+    ticket = db.session.query(User).get(user_id)
+    return {
+        'data': ticket
+    }
+
+
 class UserService(object):
     __instance = None
 
