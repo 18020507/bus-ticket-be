@@ -48,6 +48,7 @@ $ uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 **Cách 2:** Dùng Docker & Docker Compose - đơn giản hơn nhưng cần có kiến thức Docker
 - Clone Project
 - Run docker-compose
+- DOCKER_DEFAULT_PLATFORM=linux/amd64 docker-compose up -d --build
 ```
 $ git clone https://github.com/Longdh57/fastapi-base
 $ cd fastapi-base
