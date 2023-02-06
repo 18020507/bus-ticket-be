@@ -12,6 +12,7 @@ from app.helpers.paging import PaginationParams
 from app.models import User
 from app.schemas.sche_booking_ticket import UpdateTicket
 from app.schemas.she_booking_ticket import CreateBookingTicket
+from app.schemas.sche_base import DataResponse
 
 from config.route import Route
 
@@ -33,7 +34,8 @@ async def get_list_ticket(params: PaginationParams = Depends()):
 async def get_ticket_detail(current_user: User = Depends(UserService().get_current_user)):
     logging.info("===> function get_list_bus_schedule <===")
     try:
-        return await booking_ticket_service.get_ticket_detail(current_user)
+        response = await booking_ticket_service.get_ticket_detail(current_user)
+        return DataResponse().success_response(response)
     except ClientError or Exception as e:
         logging.info("===>>> Error booking_ticket_controller.get_ticket_detail <<<===")
         logging.info(e)

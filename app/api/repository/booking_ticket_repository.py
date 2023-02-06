@@ -18,7 +18,7 @@ async def get_list_ticket(params: PaginationParams = Depends()):
         logging.info("===> get list ticket repository <===")
         _query = db.session.query(Ticket)
         list_ticket = paginate(model=Ticket, query=_query, params=params)
-        return list_ticket
+        return DataResponse().success_response(list_ticket)
     except ClientError as e:
         logging.error("===> Error bus_schedule_repository.get_list_bus_schedule <===")
         logging.error(e)
@@ -46,6 +46,8 @@ async def create_booking_ticket(data: CreateBookingTicket):
             number_of_passenger=data.number_of_passenger,
             bus_id=data.bus_id,
         )
+        print('da vao')
+        await bus_schedule_repository.update_space_left(data.bus_id, data.number_of_passenger)
         db.session.add(new_ticket)
         db.session.commit()
         return DataResponse().success_response(data)
